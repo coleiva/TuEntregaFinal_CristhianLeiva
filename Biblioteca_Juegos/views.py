@@ -130,7 +130,7 @@ def editar_usuario(request, id):
             return redirect('listar_usuarios')
     else:
         form = RegistroUsuarioForm(instance=usuario)
-    return render(request, 'Biblioteca_Juegos/registro.html', {'form': form})
+    return render(request, 'Biblioteca_Juegos/editar_usuario.html', {'form': form})
 
 @login_required
 def borrar_usuario(request, id):
