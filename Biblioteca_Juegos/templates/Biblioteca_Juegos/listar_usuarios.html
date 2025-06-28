@@ -1,0 +1,42 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+{% block title %}Usuarios{% endblock %}
+
+{% block content %}
+
+<a class="btn btn-primary" href="{% url 'administrar' %}">
+    <i class="bi bi-arrow-left-circle me-1"></i>Volver
+</a>
+
+<h2 class="mb-4 text-center">Listado de Usuarios</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Avatar</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in usuarios %}
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.email }}</td>
+            <td>
+                {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" alt="Avatar" class="rounded-circle" style="width: 60px; height: 60px;">
+                {% else %}
+                    Sin avatar
+                {% endif %}
+            </td>
+            <td>
+                <a href="{% url 'ver_usuario' user.id %}" class="btn btn-info btn-sm">Ver</a>
+                <a href="{% url 'editar_usuario' user.id %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'borrar_usuario' user.id %}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar este usuario?');">Borrar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

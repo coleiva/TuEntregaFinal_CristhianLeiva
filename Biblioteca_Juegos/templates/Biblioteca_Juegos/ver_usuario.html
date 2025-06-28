@@ -1,0 +1,19 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+{% block title %}Perfil de {{ usuario.username }}{% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 400px;">
+    <div class="card-body text-center">
+        {% if usuario.avatar %}
+            <img src="{{ usuario.avatar.url }}" class="rounded-circle img-thumbnail" style="width: 200px; height: 200px;">
+        {% else %}
+            <p>Sin avatar</p>
+        {% endif %}
+        <h3>{{ usuario.username }}</h3>
+        <p>{{ usuario.email }}</p>
+    </div>
+</div>
+<div class="text-center mt-3">
+    <a href="{% url 'listar_usuarios' %}" class="btn btn-secondary">Volver a Usuarios</a>
+</div>
+{% endblock %}

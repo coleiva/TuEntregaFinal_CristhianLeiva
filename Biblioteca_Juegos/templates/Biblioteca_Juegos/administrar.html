@@ -1,0 +1,16 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+{% load static %}
+{% block title %}Administrar{% endblock %}
+
+    {% block content %}
+    <div class="text-center">
+        <h2 class="mb-4">Selecciona lo que deseas Administrar</h2>
+        <a href="{% url 'agregar_juegos' %}" class="btn btn-primary btn-lg m-2">Agregar Juegos</a>
+        <a href="{% url 'listar_juegos' %}" class="btn btn-success btn-lg m-2">Editar y Borrar Juegos</a>
+        <a href="{% url 'listar_usuarios' %}" class="btn btn-danger btn-lg m-2">Editar y Borrar Usuarios</a>
+
+        <div class="mt-4">
+            <img src="{% static 'img/Administrar.png' %}" alt="Imagen Administrar" class="img-fluid" style="max-width: 400px;">
+        </div>
+    </div>
+{% endblock %}

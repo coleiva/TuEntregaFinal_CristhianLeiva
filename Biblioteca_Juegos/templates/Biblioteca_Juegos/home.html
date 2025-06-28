@@ -1,0 +1,16 @@
+{% extends 'Biblioteca_Juegos/base.html' %}
+{% load static %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+    <div class="text-center mb-4">
+        <img src="{% static 'img/portada.png' %}" alt="Portada" class="img-fluid" style="width: 900px; height: 450px;">
+    </div>
+
+    <h2>Buscar Juegos</h2>
+    <form method="get" action="{% url 'buscar_juego' %}" class="form-inline">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+{% endblock %}
