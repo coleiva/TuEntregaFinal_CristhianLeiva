@@ -4,6 +4,8 @@ from .models import *
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.views.generic import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def home(request):
     form = BusquedaForm()
@@ -44,6 +46,11 @@ def buscar_juego(request):
 def listar_juegos(request):
     juegos = JuegoNvo.objects.all()
     return render(request, 'Biblioteca_Juegos/listar_juegos.html', {'juegos': juegos})
+
+class JuegoListView(LoginRequiredMixin, ListView):
+    model = JuegoNvo
+    template_name = 'Biblioteca_Juegos/listar_juegos.html'
+    context_object_name = 'juegos'
 
 def ver_juego(request, id):
     juego = JuegoNvo.objects.get(id=id)
@@ -98,8 +105,6 @@ def registro_view(request):
     else:
         form = RegistroUsuarioForm()
     return render(request, 'Biblioteca_Juegos/agregar_usuario.html', {'form': form})
-
-
 
 User = get_user_model()
 @login_required

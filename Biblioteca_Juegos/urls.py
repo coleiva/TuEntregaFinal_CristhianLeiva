@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from .views import JuegoListView
 
 urlpatterns = [
     path('', views.home, name='home'),
@@ -18,4 +19,5 @@ urlpatterns = [
     path('usuarios/ver/<int:id>/', views.ver_usuario, name='ver_usuario'),
     path('usuarios/editar/<int:id>/', views.editar_usuario, name='editar_usuario'),
     path('usuarios/borrar/<int:id>/', views.borrar_usuario, name='borrar_usuario'),
+    path('listar/', JuegoListView.as_view(), name='listar_juegos'),
 ]
