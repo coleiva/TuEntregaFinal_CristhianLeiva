@@ -20,7 +20,7 @@ Este es un proyecto desarrollado con [Django](https://www.djangoproject.com/) pa
 
    ```sh
    python -m venv .venv
-   source .venv/bin/activate  # En Windows: .venv\Scripts\activate
+   source .\.venv\Scripts\Activate  # En macOS: .venv/bin/activate
    ```
 
 3. **Instalar dependencias**
